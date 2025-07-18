@@ -16,10 +16,6 @@ namespace ProductService.Controllers
             _productService = productService;
         }
 
-        /// <summary>
-        /// Get all active products
-        /// </summary>
-        /// <returns>List of all active products</returns>
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
@@ -34,11 +30,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Get a product by ID
-        /// </summary>
-        /// <param name="id">Product ID</param>
-        /// <returns>Product details</returns>
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetProductById(int id)
         {
@@ -63,11 +54,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Get products by category
-        /// </summary>
-        /// <param name="category">Product category</param>
-        /// <returns>List of products in the specified category</returns>
         [HttpGet("category/{category}")]
         public async Task<IActionResult> GetProductsByCategory(string category)
         {
@@ -87,11 +73,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Get products by brand
-        /// </summary>
-        /// <param name="brand">Product brand</param>
-        /// <returns>List of products from the specified brand</returns>
         [HttpGet("brand/{brand}")]
         public async Task<IActionResult> GetProductsByBrand(string brand)
         {
@@ -111,11 +92,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Create a new product
-        /// </summary>
-        /// <param name="createProductDto">Product creation data</param>
-        /// <returns>Created product</returns>
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto createProductDto)
         {
@@ -141,12 +117,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Update an existing product
-        /// </summary>
-        /// <param name="id">Product ID</param>
-        /// <param name="updateProductDto">Product update data</param>
-        /// <returns>Updated product</returns>
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] UpdateProductDto updateProductDto)
         {
@@ -181,11 +151,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Delete a product (soft delete)
-        /// </summary>
-        /// <param name="id">Product ID</param>
-        /// <returns>Deletion confirmation</returns>
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
@@ -210,11 +175,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Search products by name or description
-        /// </summary>
-        /// <param name="term">Search term</param>
-        /// <returns>List of matching products</returns>
         [HttpGet("search/{term}")]
         public async Task<IActionResult> SearchProducts(string term)
         {
@@ -238,12 +198,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Get products by price range
-        /// </summary>
-        /// <param name="min">Minimum price</param>
-        /// <param name="max">Maximum price</param>
-        /// <returns>List of products within the price range</returns>
         [HttpGet("price-range")]
         public async Task<IActionResult> GetProductsByPriceRange([FromQuery] decimal? min, [FromQuery] decimal? max)
         {
@@ -284,11 +238,6 @@ namespace ProductService.Controllers
             }
         }
 
-        /// <summary>
-        /// Get products with low stock
-        /// </summary>
-        /// <param name="threshold">Stock threshold</param>
-        /// <returns>List of products with low stock</returns>
         [HttpGet("low-stock")]
         public async Task<IActionResult> GetLowStockProducts([FromQuery] int threshold)
         {
